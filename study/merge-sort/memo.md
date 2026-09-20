@@ -3,7 +3,7 @@
 - クイックソートの後に取り組んだのでそこまで
 - ただ再帰に対して誤解してて、マージのところがいまいち腑に落ちてなかった
 
-```
+```java
 mergeSortHelper() {
   mergeSortHelper(); //
   mergeSortHelper();
@@ -18,4 +18,3 @@ mergeSortHelper() {
   - left: 左配列の左端
   - mid: 左配列の右端 かつ 右配列左端(+1が必要)
   - right: 右配列の右端
-  

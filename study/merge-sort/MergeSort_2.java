@@ -13,11 +13,43 @@ public class MergeSort_2 {
     mergeSortHelper(nums, left, mid);
     mergeSortHelper(nums, mid + 1, right);
 
-    private void merge(nums)
+    merge(nums, left, mid, right);
   }
 
-  private void merge() {
-    
+  private void merge(int[] nums, int left, int mid, int right) {
+    int leftStart = left;
+    int leftEnd = mid;
+    int rightStart = mid + 1;
+
+    int[] sorted = new int[right - left + 1];
+    int i = 0;
+
+    while (leftStart <= leftEnd && rightStart <= right ) {
+      if (nums[leftStart] <= nums[rightStart]) {
+        sorted[i] = nums[leftStart];
+        leftStart++;
+      } else {
+        sorted[i] = nums[rightStart];
+        rightStart++;
+      }
+      i++;
+    }
+    while (leftStart <= leftEnd) {
+     sorted[i] = nums[leftStart];
+     leftStart++; 
+     i++;
+    }
+
+    while (rightStart <= right) {
+     sorted[i] = nums[rightStart];
+     rightStart++; 
+     i++;
+    }
+
+    for (int j = 0; j < sorted.length; j++) {
+      nums[left] = sorted[j];
+      left++;
+    }
   }
 
 }

@@ -1,11 +1,11 @@
 ---
-name: leetcode-branch
-description: LeetCodeの問題名（「2. Add Two Numbers」「2　Add Two Numbers」のような問題番号＋問題名）を受け取り、mainを派生元とする「2_add-two-numbers」形式のブランチを作成してcheckoutするスキル。ユーザーがLeetCodeの問題番号や問題名を渡して「ブランチ切って」「ブランチ作って」「この問題始める」「取り組む」と言ったとき、あるいは「番号. 英語の問題名」だけを貼り付けたときも、スキル名を明示していなくても使うこと。
+name: leetcode-start
+description: LeetCodeの問題名（「2. Add Two Numbers」「2　Add Two Numbers」のような問題番号＋問題名）を受け取り、mainを派生元とする「2_add-two-numbers」形式のブランチを作成してcheckoutし、arai60/配下に同名ディレクトリとStep1〜3.java・memo.mdを作成するスキル。ユーザーがLeetCodeの問題番号や問題名を渡して「ブランチ切って」「ブランチ作って」「この問題始める」「取り組む」と言ったとき、あるいは「番号. 英語の問題名」だけを貼り付けたときも、スキル名を明示していなくても使うこと。
 ---
 
-# leetcode-branch
+# leetcode-start
 
-LeetCodeの問題ごとに、mainから作業ブランチを切ってcheckoutする。
+LeetCodeの問題ごとに、mainから作業ブランチを切ってcheckoutし、`arai60/` 配下に解答用のディレクトリと空ファイルを用意する。
 
 ## 入力
 
@@ -44,8 +44,21 @@ LeetCodeの問題ごとに、mainから作業ブランチを切ってcheckoutす
    ```
 
    派生元はローカルの `main`。作業中のブランチ（`study` など）からは派生させない。
-5. `git branch --show-current` で現在のブランチを確認し、作成したブランチ名を短く報告する。
+5. `arai60/<ブランチ名>/` を作り、その中に空ファイルを4つ作成する。
+   - `Step1.java`
+   - `Step2.java`
+   - `Step3.java`
+   - `memo.md`
+
+   ```bash
+   mkdir -p arai60/<ブランチ名>
+   touch arai60/<ブランチ名>/{Step1.java,Step2.java,Step3.java,memo.md}
+   ```
+
+   ディレクトリが既にあっても、`touch` は既存ファイルの中身を消さないのでそのまま実行してよい。
+6. `git branch --show-current` でブランチを確認し、作成したブランチ名とファイルを短く報告する。
 
 ## しないこと
 
-- commit、push、ファイル（問題フォルダなど）の作成はしない。頼まれたのはブランチの作成とcheckoutだけ。
+- commit、push、`git add` はしない。頼まれたのはブランチの作成・checkoutとファイルの用意だけ。
+- ファイルに雛形（package宣言やクラス定義など）は書かない。空ファイルのままにする。

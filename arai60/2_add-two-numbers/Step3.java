@@ -10,8 +10,8 @@ class ListNode {
 
 class Step3 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode head = new ListNode(0);
-        ListNode current = head;
+        ListNode sentinel = new ListNode(0);
+        ListNode current = sentinel;
         
         int carry = 0;
 
@@ -32,6 +32,6 @@ class Step3 {
 
             carry = sum / 10;
         } 
-        return head.next;
+        return sentinel.next;
     }
 }
